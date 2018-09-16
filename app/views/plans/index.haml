@@ -1,0 +1,20 @@
+.table-responsive
+  %table.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Price
+        %th Subscriptions
+        %th
+    %tbody
+      - @plans.each do |plan|
+        %tr
+          %td= plan.name
+          %td= number_to_currency(plan.price)
+          %td
+            %ol
+              - plan.subscriptions.each do |subscription|
+                %li= link_to subscription.email, [plan, subscription]
+          %td
+            = link_to new_plan_subscription_path(plan), class: 'btn btn-success btn-xs' do
+              Subscribe

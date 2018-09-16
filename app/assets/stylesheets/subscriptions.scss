@@ -1,0 +1,21 @@
+// Place all the styles related to the Subscriptions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.alert-success {
+  padding: 5px;
+  background-color: green;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.alert-error {
+  padding: 5px;
+  background-color: red;
+  color: #fff;
+  border-radius: 4px;
+}
+
+table.table-bordered th, table.table-bordered td {
+  border: 1px solid #cacaca;
+}

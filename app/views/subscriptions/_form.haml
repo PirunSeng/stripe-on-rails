@@ -1,0 +1,20 @@
+= simple_form_for([@plan, @subscription]) do |f|
+  = f.error_notification
+  = f.hidden_field :stripe_card_token
+  .field
+    = f.input :name
+    = f.input :email
+  .field
+    = label_tag :card_number, 'Card Number'
+    = text_field_tag :card_number, nil, name: nil
+  .field
+    = label_tag :card_code, 'Card Code (CVV)'
+    = text_field_tag :card_code, nil, name: nil
+  .field
+    = label_tag :card_code, 'Card Expired Date'
+    = select_month nil, { add_month_numbers: true }, { name: nil, id: 'card_month' }
+    = select_year nil, { start_year: Date.today.year, end_year: Date.today.year + 15 }, { name: nil, id: 'card_year' }
+  #stripe_error
+    %noscript Javascript is not enabled
+  .actions
+    = f.submit 'Subscribe', class: 'btn btn-primary btn-sm'
